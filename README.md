@@ -1,33 +1,34 @@
-# Introducción a la Ciencia de Datos (ICD-2026)
+# Introducción a la Ciencia de Datos
 
-Este repositorio recopila el material, proyectos y actividades desarrollados durante el curso de **Introducción a la Ciencia de Datos** (2026). Su propósito es documentar el aprendizaje práctico y teórico en el procesamiento, análisis y modelado de datos utilizando el ecosistema de Python.
-
----
-
-## 🎯 Objetivos del Curso
-
-* **Adquisición y Limpieza de Datos:** Técnicas de recolección, tratamiento de valores nulos, normalización y transformación de datos.
-* **Análisis Exploratorio de Datos (EDA):** Identificación de patrones, distribuciones, correlaciones y anomalías.
-* **Visualización de Datos:** Creación de gráficos informativos y comprensibles para comunicar hallazgos.
-* **Modelado y Aprendizaje Automático:** Fundamentos de inferencia estadística y modelos introductorios de Machine Learning.
+Este repositorio reúne el material de estudio, código, prácticas y proyectos correspondientes al curso de **Introducción a la Ciencia de Datos**. Su objetivo principal es estructurar y documentar de forma clara el flujo de aprendizaje y aplicación práctica de las técnicas de análisis, procesamiento y modelado de datos utilizando **Python**.
 
 ---
 
-## 📂 Estructura del Repositorio
+## 🎯 Enfoque y Contenido
 
-El proyecto está organizado en las siguientes carpetas:
-
-* **[`Datos/`](./Datos/):** Conjuntos de datos (datasets) en formatos CSV, JSON u otros utilizados a lo largo de las actividades.
-* **[`Practicas/`](./Practicas/):** Prácticas de laboratorio, notebooks interactivos y desarrollo de casos prácticos.
-* **[`Tareas/`](./Tareas/):** Tareas, ejercicios asignados y entregas periódicas de la asignatura.
+El repositorio abarca las etapas clave del flujo de trabajo en ciencia de datos:
+* **Procesamiento y Limpieza de Datos:** Manejo de datos estructurados, imputación de valores faltantes y transformación.
+* **Análisis Exploratorio (EDA) y Visualización:** Extracción de insights, identificación de patrones y generación de gráficos estadísticos.
+* **Modelado y Estadística Aplicada:** Aplicación de principios estadísticos y algoritmos introductorios de Machine Learning.
 
 ---
 
-## 🛠️ Tecnologías y Herramientas
+## 📂 Organización del Repositorio
+
+La estructura del proyecto está organizada en los siguientes directorios:
+
+* **[`book/`](./book/):** Notas de lectura, resúmenes teóricos y referencias bibliográficas basadas en libros de texto y literatura de apoyo.
+* **[`classes/`](./classes/):** Notebooks y material desarrollado durante las sesiones de clase, incluyendo explicaciones teóricas y código guiado.
+* **[`practices/`](./practices/):** Prácticas de laboratorio, retos y ejercicios prácticos aplicados a conjuntos de datos reales.
+* **[`project/`](./project/):** Proyecto integrador del curso, abarcando desde la concepción del problema hasta el análisis y presentación de resultados.
+
+---
+
+## 🛠️ Tecnologías Utilizadas
 
 * **Lenguaje:** Python 3.x
-* **Entorno:** Jupyter Notebook / Google Colab
+* **Entornos:** Jupyter Notebook / JupyterLab
 * **Librerías principales:**
-  * `NumPy` & `Pandas` (Manipulación y análisis de datos)
-  * `Matplotlib` & `Seaborn` (Visualización estática y estadística)
-  * `Scikit-Learn` (Modelado estadístico y Machine Learning)
+  * **Manipulación de Datos:** `NumPy`, `Pandas`
+  * **Visualización:** `Matplotlib`, `Seaborn`
+  * **Modelado y Machine Learning:** `Scikit-Learn`, `SciPy`
