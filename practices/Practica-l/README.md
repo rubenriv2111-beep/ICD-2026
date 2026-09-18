@@ -8,6 +8,8 @@ El archivo de datos contiene registros de la Red Nacional de Medicion de Calidad
 - Contenido - 126,070 registros y 493 variables fisicoquimicas, microbiologicas y metales en cuencas de Mexico
 - Unidad de observacion - Evento individual de monitoreo por sitio y fecha
 
+- Licencia de uso - Datos Abiertos del Gobierno de Mexico (Libre uso)
+
 ## Requisitos de Ejecucion
 - Python 3.10 o superior
 - Jupyter Notebook o Visual Studio Code
