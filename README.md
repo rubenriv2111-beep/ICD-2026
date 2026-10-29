@@ -1,34 +1,37 @@
-# Introduccion a la Ciencia de Datos
+# Introducción a la Ciencia de Datos
 
-Este repositorio reune el material de estudio, codigo, practicas y proyectos correspondientes al curso de Introduccion a la Ciencia de Datos. Su objetivo principal es estructurar y documentar de forma clara el flujo de aprendizaje y aplicacion practica de las tecnicas de analisis, procesamiento y modelado de datos utilizando Python.
+Este repositorio reúne el material de estudio, código, prácticas y proyectos correspondientes al curso de Introducción a la Ciencia de Datos. Su objetivo principal es estructurar y documentar con claridad el flujo de aprendizaje y aplicación práctica de las técnicas de análisis, procesamiento y modelado de datos utilizando Python.
 
 ---
 
 ## Enfoque y Contenido
 
-El repositorio abarca las etapas clave del flujo de trabajo en ciencia de datos:
-* Procesamiento y Limpieza de Datos: Manejo de datos estructurados, imputacion de valores faltantes y transformacion.
-* Analisis Exploratorio (EDA) y Visualizacion: Extraccion de insights, identificacion de patrones y generacion de graficos estadisticos.
-* Modelado y Estadistica Aplicada: Aplicacion de principios estadisticos y algoritmos introductorios de Machine Learning.
+El repositorio abarca las etapas centrales del flujo de trabajo en ciencia de datos:
+* Procesamiento y Limpieza de Datos: Manejo de datos estructurados, imputación de valores faltantes y transformación.
+* Análisis Exploratorio (EDA) y Visualización: Extracción de patrones, identificación de correlaciones y generación de gráficos estadísticos.
+* Modelado y Estadística Aplicada: Aplicación de principios estadísticos y algoritmos de Machine Learning supervisado.
 
 ---
 
-## Organizacion del Repositorio
+## Organización del Repositorio
 
-La estructura del proyecto esta organizada en los siguientes directorios:
+La estructura del proyecto queda organizada en los siguientes directorios:
 
-* [book/](./book/): Notas de lectura, resumenes teoricos y referencias bibliograficas basadas en libros de texto y literatura de apoyo.
-* [classes/](./classes/): Notebooks y material desarrollado durante las sesiones de clase, incluyendo explicaciones teoricas y codigo guiado.
-* [practices/](./practices/): Practicas de laboratorio, retos y ejercicios practicos aplicados a conjuntos de datos reales.
-* [project/](./project/): Proyecto integrador del curso, abarcando desde la concepcion del problema hasta el analisis y presentacion de resultados.
+* [book/](./book/): Notas de lectura, síntesis teóricas y referencias bibliográficas basadas en literatura de apoyo.
+* [classes/](./classes/): Notebooks y material desarrollado durante las sesiones de clase, incluyendo explicaciones teóricas y código guiado.
+* [practices/](./practices/): Prácticas de laboratorio, retos y ejercicios aplicados a conjuntos de datos reales.
+* [project/](./project/): Proyectos del curso:
+  * `Notebook Preprocesamiento`: Limpieza, imputación y análisis del conjunto Breast Cancer Wisconsin.
+  * `Notebook de regresión`: Modelado con regresión lineal simple y múltiple sobre calidad de vinos.
+  * `notebook metricas de clasificacion`: Evaluación con matriz de confusión, curvas ROC y curvas PR sobre Bank Marketing.
 
 ---
 
-## Tecnologias Utilizadas
+## Tecnologías Utilizadas
 
 * Lenguaje: Python 3.x
 * Entornos: Jupyter Notebook / JupyterLab
-* Librerias principales:
-  * Manipulacion de Datos: NumPy, Pandas
-  * Visualizacion: Matplotlib, Seaborn
+* Librerías principales:
+  * Manipulación de Datos: NumPy, Pandas
+  * Visualización: Matplotlib, Seaborn
   * Modelado y Machine Learning: Scikit-Learn, SciPy

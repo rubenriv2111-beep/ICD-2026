@@ -39,3 +39,9 @@ ENV/
 # OS specific
 .DS_Store
 Thumbs.db
+
+# Temporary files and logs
+*.log
+*.tmp
+*.temp
+.cache/
