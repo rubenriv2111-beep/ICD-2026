@@ -17,13 +17,14 @@ El repositorio abarca las etapas centrales del flujo de trabajo en ciencia de da
 
 La estructura del proyecto queda organizada en los siguientes directorios:
 
-* [book/](./book/): Notas de lectura, síntesis teóricas y referencias bibliográficas basadas en literatura de apoyo.
-* [classes/](./classes/): Notebooks y material desarrollado durante las sesiones de clase, incluyendo explicaciones teóricas y código guiado.
+* [classes/](./classes/): Cuadernos y material de clase basados en los capítulos del libro (Python Data Science Handbook).
+* [final_proyect/](./final_proyect/): Proyecto final de la materia sobre exploración geotérmica.
 * [practices/](./practices/): Prácticas de laboratorio, retos y ejercicios aplicados a conjuntos de datos reales.
 * [project/](./project/): Proyectos del curso:
   * `Notebook Preprocesamiento`: Limpieza, imputación y análisis del conjunto Breast Cancer Wisconsin.
   * `Notebook de regresión`: Modelado con regresión lineal simple y múltiple sobre calidad de vinos.
   * `notebook metricas de clasificacion`: Evaluación con matriz de confusión, curvas ROC y curvas PR sobre Bank Marketing.
+  * `Propuesta_Proyecto`: Propuesta formal del proyecto.
 
 ---
 

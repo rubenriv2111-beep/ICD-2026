@@ -1,0 +1,13 @@
+# Dependencias del Proyecto: Ciencia de Datos (CICESE 2026-3)
+# Entorno verificado: Python 3.11.9
+numpy>=1.26.0
+pandas>=2.2.0
+scikit-learn>=1.4.0
+imbalanced-learn>=0.12.0
+torch>=2.2.0
+matplotlib>=3.8.0
+seaborn>=0.13.0
+rasterio>=1.3.9
+pyproj>=3.6.1
+scipy>=1.12.0
+joblib>=1.3.0
