@@ -16,6 +16,7 @@
 \usepackage{tabularx}
 \usepackage{array}
 \usepackage{graphicx}
+\usepackage{dblfloatfix}
 \usepackage{tikz}
 \usetikzlibrary{positioning,arrows.meta,babel,shapes.geometric}
 \usepackage{xcolor}
@@ -87,23 +88,24 @@ La identificación de recursos geotérmicos hidrotermales a escala regional dema
 
 \textbf{Dominio espacial y covariables geofísicas.} El dominio analizado comprende una cuadrícula ráster de 74{,}078{,}849 celdas a resolución de 30\,m (EPSG:32611, UTM zona 11N). Con el propósito de garantizar reproducibilidad computacional, se extrajo una base de datos georreferenciada de 89{,}814 píxeles continentales, integrando los positivos de Cerro Prieto y negativos regionales estratificados fuera de la zona de amortiguamiento hidrotermal. Las variables geofísicas analizadas se resumen en la Tabla~\ref{tab:variables}.
 
-\begin{table}[h]
+\begin{table}[htbp]
 \centering
-\footnotesize
 \caption{Covariables geofísicas del modelo de susceptibilidad.}
 \label{tab:variables}
-\begin{tabularx}{\columnwidth}{@{}>{\bfseries}p{1.9cm}Xp{1.4cm}@{}}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{@{}>{\bfseries}lp{5.2cm}r@{}}
 \toprule
 Variable & Fuente Institucional y Descripción & Resolución \\
 \midrule
-LST & Landsat 9 TIRS-2 (Banda 10, USGS). Temperatura superficial en $^\circ\text{C}$ & 30\,m \\
+LST & Landsat 9 TIRS-2 (Banda 10, USGS). Temp. sup. ($^\circ\text{C}$) & 30\,m \\
 NDVI & Landsat 9 OLI-2 (B4/B5, USGS). Índice vegetal & 30\,m \\
 Elevación & Continuo de Elevaciones CEM 3.0 (INEGI). msnm & 30\,m \\
 Pendiente & Gradiente topográfico derivado de CEM 3.0 ($^\circ$) & 30\,m \\
 Prox\_Fallas & Distancia euclidiana (m) a trazas del SGM & 30\,m \\
 Magnetometría & Campo aeromagnético residual total (nT, SGM) & Interpolada \\
 \bottomrule
-\end{tabularx}
+\end{tabular}%
+}
 \end{table}
 
 \textbf{Etiquetas y clase objetivo.} La delimitación del campo geotérmico activo (Clase 1, positivos) proviene del polígono oficial del Título de Concesión de Cerro Prieto otorgado por la Comisión Federal de Electricidad (CFE), totalizando 24{,}814 píxeles continentales válidos. Los negativos (Clase 0, 65{,}000 píxeles) se muestrearon aleatoriamente fuera de un perímetro de amortiguamiento de 5\,km alrededor de los pozos de explotación, previniendo falsos negativos por difusión hidrotermal.
@@ -111,6 +113,7 @@ Magnetometría & Campo aeromagnético residual total (nT, SGM) & Interpolada \\
 % ---------- Figura TikZ Flujo ----------
 \begin{figure*}[t]
 \centering
+\resizebox{\textwidth}{!}{%
 \begin{tikzpicture}[
     font=\footnotesize,
     >={Stealth[length=2.2mm]},
@@ -129,7 +132,8 @@ Magnetometría & Campo aeromagnético residual total (nT, SGM) & Interpolada \\
   \draw[flow] (a) -- (b);
   \draw[flow] (b) -- (c);
   \draw[flow] (c) -- (d);
-\end{tikzpicture}
+\end{tikzpicture}%
+}
 \caption{Flujo metodológico blindado contra fuga de datos para prospección geotérmica regional.}
 \label{fig:flujo}
 \end{figure*}
@@ -171,27 +175,27 @@ Se implementó un \emph{Dummy Classifier} (predicción proporcional constante), 
 \textbf{Evaluación sobre el conjunto de prueba independiente.}
 La Tabla~\ref{tab:resultados_test} resume el desempeño cuantitativo de los ocho modelos evaluados sobre las 13{,}473 muestras del conjunto de prueba ciego, ordenados descendentemente por su precisión promedio ($\PRAUC$).
 
-\begin{table*}[t]
+\begin{table}[htbp]
 \centering
-\footnotesize
 \caption{Evaluación comparativa en el conjunto de prueba independiente (13{,}473 píxeles, prevalencia natural 27.63\,\%).}
 \label{tab:resultados_test}
-\renewcommand{\arraystretch}{1.15}
-\begin{tabularx}{\textwidth}{@{}lcccccrr@{}}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{@{}lccccccc@{}}
 \toprule
-\textbf{Modelo / Activación} & \textbf{AUC-ROC} & \textbf{PR-AUC} & \textbf{F1-Score} & \textbf{Exactitud Bal.} & \textbf{Brier Score} & \textbf{Umbral Youden} & \textbf{Tiempo (s)} \\
+\textbf{Modelo / Activación} & \textbf{AUC} & \textbf{PR-AUC} & \textbf{F1} & \textbf{Bal.~Acc.} & \textbf{Brier} & \textbf{Umbral} & \textbf{Tiempo} \\
 \midrule
-Random Forest & 1.0000 & 1.0000 & 0.9995 & 0.9997 & 0.00034 & 0.639 & 0.79 \\
-Red: ReLU & 1.0000 & 1.0000 & 0.9989 & 0.9996 & 0.00075 & 0.904 & 35.27 \\
-Red: GELU & 1.0000 & 1.0000 & 0.9987 & 0.9994 & 0.00084 & 0.865 & 32.28 \\
-Red: Tanh & 1.0000 & 1.0000 & 0.9984 & 0.9993 & 0.00090 & 0.796 & 32.35 \\
-Red: Swish (SiLU) & 1.0000 & 0.9999 & 0.9985 & 0.9994 & 0.00090 & 0.769 & 30.00 \\
-Red: LeakyReLU ($\alpha=0.25$) & 1.0000 & 0.9999 & 0.9987 & 0.9995 & 0.00083 & 0.733 & 32.72 \\
-Regresión Logística & 0.9989 & 0.9945 & 0.9857 & 0.9944 & 0.00978 & 0.627 & 0.08 \\
-Dummy Classifier & 0.5026 & 0.2773 & 0.3600 & 0.5026 & 0.50041 & 1.000 & 0.00 \\
+Random Forest & 1.0000 & 1.0000 & 0.9995 & 0.9997 & 0.00034 & 0.639 & 0.79\,s \\
+Red: ReLU & 1.0000 & 1.0000 & 0.9989 & 0.9996 & 0.00075 & 0.904 & 35.27\,s \\
+Red: GELU & 1.0000 & 1.0000 & 0.9987 & 0.9994 & 0.00084 & 0.865 & 32.28\,s \\
+Red: Tanh & 1.0000 & 1.0000 & 0.9984 & 0.9993 & 0.00090 & 0.796 & 32.35\,s \\
+Red: Swish (SiLU) & 1.0000 & 0.9999 & 0.9985 & 0.9994 & 0.00090 & 0.769 & 30.00\,s \\
+Red: LeakyReLU ($\alpha=0.25$) & 1.0000 & 0.9999 & 0.9987 & 0.9995 & 0.00083 & 0.733 & 32.72\,s \\
+Regresión Logística & 0.9989 & 0.9945 & 0.9857 & 0.9944 & 0.00978 & 0.627 & 0.08\,s \\
+Dummy Classifier & 0.5026 & 0.2773 & 0.3600 & 0.5026 & 0.50041 & 1.000 & 0.00\,s \\
 \bottomrule
-\end{tabularx}
-\end{table*}
+\end{tabular}%
+}
+\end{table}
 
 \textbf{Variabilidad estocástica en redes y ensambles.}
 Con el objetivo de cuantificar la sensibilidad de los estimadores a la inicialización paramétrica de la red neuronal y el muestreo de árboles, se ejecutaron cinco corridas estocásticas independientes con semillas $\{42, 101, 2024, 7, 99\}$. Los resultados arrojaron:
@@ -204,12 +208,12 @@ Esta variabilidad prácticamente nula indica que las fronteras de decisión apre
 \textbf{Diagnóstico geofísico de residuos y falsas alarmas.}
 El análisis residual detallado sobre la red LeakyReLU evidenció cero falsos negativos (tasa de omisión del 0.00\,\%, preservando íntegramente las zonas prospectivas de Cerro Prieto) y únicamente 10 falsos positivos (0.07\,\% de falsas alarmas). La Tabla~\ref{tab:residuos} describe el contraste de firmas geofísicas entre las categorías predictivas.
 
-\begin{table}[h]
+\begin{table}[htbp]
 \centering
-\footnotesize
 \caption{Firma geofísica media de falsos positivos frente a negativos y positivos reales (Red LeakyReLU).}
 \label{tab:residuos}
-\begin{tabularx}{\columnwidth}{@{}>{\bfseries}lcccc@{}}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{@{}>{\bfseries}lcccc@{}}
 \toprule
 Variable & Verdadero Neg. & Falso Pos. & Verdadero Pos. & Falso Neg. \\
 \midrule
@@ -220,7 +224,8 @@ Pendiente ($^\circ$) & 2.20 & 2.70 & 0.74 & -- \\
 Prox\_Fallas (m) & 17{,}807 & \textbf{9{,}243} & 9{,}236 & -- \\
 Magnetometría & -238.14 & \textbf{-147.97} & -133.16 & -- \\
 \bottomrule
-\end{tabularx}
+\end{tabular}%
+}
 \end{table}
 
 Los falsos positivos se ubican espacialmente en la planicie árida de El Chinero y Laguna Salada. Como evidencia la Tabla~\ref{tab:residuos}, exhiben una temperatura LST promedio de $53.37\,^\circ\text{C}$ (superior incluso a la emisión media de Cerro Prieto de $42.30\,^\circ\text{C}$, atenuada por evaporación) y una proximidad estructural a fallas de $9{,}243$\,m que coincide milimétricamente con la separación típica de los límites de concesión ($9{,}236$\,m). Asimismo, presentan una magnetometría residual de $-147.97$\,nT muy cercana a la firma de basamento hidrotermal ($-133.16$\,nT).
