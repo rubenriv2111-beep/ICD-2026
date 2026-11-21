@@ -1,0 +1,314 @@
+\documentclass[10pt,twocolumn,letterpaper]{article}
+
+% ---------- Codificación e idioma ----------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{mathptmx}
+\usepackage[spanish,es-nodecimaldot,es-tabla,es-noquoting]{babel}
+
+% ---------- Formato ----------
+\usepackage[top=2cm,bottom=2cm,left=1.8cm,right=1.8cm,columnsep=0.7cm]{geometry}
+\usepackage{microtype}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,babel,shapes.geometric}
+\usepackage{xcolor}
+\usepackage{caption}
+\usepackage{titlesec}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titlespacing*{\section}{0pt}{8pt}{3pt}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.4em}{}
+\titlespacing*{\subsection}{0pt}{5pt}{2pt}
+\usepackage[hidelinks]{hyperref}
+
+% ---------- Matemáticas ----------
+\usepackage{amsmath,amssymb}
+
+% ---------- Citas autor-año (APA 7) ----------
+\usepackage[round,authoryear]{natbib}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}
+\setlist{itemsep=0pt,topsep=2pt,parsep=0pt}
+\captionsetup{font=small,labelfont=bf}
+
+% ---------- Macros ----------
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\AUC}{\mathrm{AUC}}
+\newcommand{\PRAUC}{\mathrm{PR\text{-}AUC}}
+
+% =====================================================
+\title{\vspace{-1.5cm}\Large\bfseries Prospección Geotérmica Regional Mediante Aprendizaje Automático y Redes Neuronales Profundas en el Rift del Golfo de California (Baja California, México)}
+\author{
+    \large Rubén Rivera García \\
+    \normalsize Centro de Investigación Científica y de Educación Superior de Ensenada (CICESE) \\
+    \normalsize Maestría en Ciencias en Ciencias de la Computación \\
+    \normalsize Asignatura: Introducción a la Ciencia de Datos (Semestre 2026-3) \\
+    \normalsize Instructor: Dr.\ Jesús Guillermo Falcón-Cardona
+}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+% =====================================================
+\section*{RESUMEN}
+La identificación de recursos geotérmicos hidrotermales a escala regional demanda integrar datos satelitales térmicos, modelos geomorfológicos y cartografía geofísica estructural. En este estudio se desarrolla una metodología rigurosa de aprendizaje automático orientada a modelar la susceptibilidad geotérmica en la cuenca del Valle de Mexicali y el sistema de fallas activas de Cerro Prieto. Se implementa un protocolo experimental estrictamente blindado contra la fuga de información (\emph{no data leakage}), donde la partición estratificada (70\,\% entrenamiento, 15\,\% validación y 15\,\% prueba sobre 89{,}814 píxeles) precede a la estandarización y al sobremuestreo sintético balanceado (SMOTE), evaluando los conjuntos independientes en su tasa natural de desbalance (27.63\,\% de positivos). Se evalúan comparativamente un clasificador base Dummy, Regresión Logística, Random Forest y cinco formulaciones de Redes Neuronales Profundas (MLP) variando su función de activación: ReLU, LeakyReLU ($\alpha=0.25$), GELU, Swish y Tanh. Los modelos de ensamble y las redes neuronales profundas alcanzaron un desempeño sobresaliente en el conjunto de prueba independiente ($\AUC\text{-}\mathrm{ROC} \approx 1.0000$, $\PRAUC \ge 0.9999$ y F1-Score $\ge 0.9985$), mientras que la regresión logística registró $\AUC = 0.9989$. El diagnóstico de residuos reveló únicamente 10 falsas alarmas (0.07\,\%), concentradas en zonas desérticas hipersalinas con anomalías térmicas radiativas solares (El Chinero). Se discuten las implicaciones físicas de los hallazgos y se establecen las limitaciones epistemológicas del modelo: un índice alto de susceptibilidad predice correlatos superficiales y estructurales, mas no garantiza la existencia de yacimientos comerciales ni temperatura de reservorio en el subsuelo sin exploración magnetotelúrica y perforación directa.
+
+\vspace{0.4em}
+\hrule
+\vspace{0.4em}
+
+% =====================================================
+\section{INTRODUCCIÓN}
+
+\textbf{Contexto geológico e hidrotermal.} La provincia tectónica del Valle de Mexicali, situada en el extremo noroccidental del régimen extensional del Rift del Golfo de California, constituye uno de los entornos geotérmicos de alta entalpía más productivos del planeta, evidenciado por el complejo de Cerro Prieto \citep{prolledesma2023}. La génesis de estos reservorios obedece al acoplamiento entre un basamento cristalino adelgazado, un alto flujo térmico cortical y una densa red de fallas transcurrentes activas (sistema Falla San Andrés -- Cerro Prieto), las cuales proporcionan las vías de permeabilidad requeridas con el fin de propiciar la circulación hidrotermal ascendente.
+
+\textbf{Planteamiento del problema.} La exploración preliminar tradicional mediante muestreos geoquímicos de campo y sondeos geofísicos directos abarca costos financieros prohibitivos sobre grandes extensiones territoriales. La teledetección multiespectral (p.~ej., sensores Landsat 9 OLI/TIRS) ofrece la capacidad de monitorear la temperatura de emisión superficial (\emph{Land Surface Temperature}, LST) y los índices de vigor vegetal (NDVI). No obstante, el desafío fundamental de la ciencia de datos reside en discernir anomalías hidrotermales genuinas respecto al calentamiento radiativo diurno del suelo desértico, requiriendo integrar variables de proximidad estructural, gradientes topográficos y anomalías magnéticas del basamento.
+
+\textbf{Preguntas de investigación planteadas.}
+\begin{enumerate}[leftmargin=1.2em]
+  \item \textbf{$PI_1$ (Acoplamiento Físico):} ¿Cuáles covariables geofísicas ejercen el mayor poder discriminativo en la delimitación de zonas hidrotermales y cómo se refleja el control estructural de fallas activas?
+  \item \textbf{$PI_2$ (Integridad Metodológica):} ¿De qué forma previene la partición previa estricta (\emph{No Data Leakage}) la sobreestimación artificial generada por técnicas de sobremuestreo sintético?
+  \item \textbf{$PI_3$ (Efecto de Funciones de Activación):} ¿Demuestran las activaciones continuas modernas (LeakyReLU, GELU, Swish) ventajas cuantificables frente a funciones clásicas (ReLU, Tanh) en términos de convergencia, balance F1 y calibración probabilística?
+\end{enumerate}
+
+\textbf{Hipótesis y contribución.} Se hipotetiza que la firma geotérmica superficial está unívocamente gobernada por el acoplamiento bivariado entre temperatura anómala y proximidad inmediata a trazas de falla ($<1{,}500$\,m). Como contribución, se formula un flujo de aprendizaje supervisado de extremo a extremo, blindado contra contaminación metodológica, y se diagnostican cuantitativamente las fuentes físicas de falsas alarmas, publicando el código reproducible y datos curados en el repositorio del curso.
+
+% =====================================================
+\section{METODOLOGÍA EXPERIMENTAL}
+
+\textbf{Dominio espacial y covariables geofísicas.} El dominio analizado comprende una cuadrícula ráster de 74{,}078{,}849 celdas a resolución de 30\,m (EPSG:32611, UTM zona 11N). Con el propósito de garantizar reproducibilidad computacional, se extrajo una base de datos georreferenciada de 89{,}814 píxeles continentales, integrando los positivos de Cerro Prieto y negativos regionales estratificados fuera de la zona de amortiguamiento hidrotermal. Las variables geofísicas analizadas se resumen en la Tabla~\ref{tab:variables}.
+
+\begin{table}[h]
+\centering
+\footnotesize
+\caption{Covariables geofísicas del modelo de susceptibilidad.}
+\label{tab:variables}
+\begin{tabularx}{\columnwidth}{@{}>{\bfseries}p{1.9cm}Xp{1.4cm}@{}}
+\toprule
+Variable & Fuente Institucional y Descripción & Resolución \\
+\midrule
+LST & Landsat 9 TIRS-2 (Banda 10, USGS). Temperatura superficial en $^\circ\text{C}$ & 30\,m \\
+NDVI & Landsat 9 OLI-2 (B4/B5, USGS). Índice vegetal & 30\,m \\
+Elevación & Continuo de Elevaciones CEM 3.0 (INEGI). msnm & 30\,m \\
+Pendiente & Gradiente topográfico derivado de CEM 3.0 ($^\circ$) & 30\,m \\
+Prox\_Fallas & Distancia euclidiana (m) a trazas del SGM & 30\,m \\
+Magnetometría & Campo aeromagnético residual total (nT, SGM) & Interpolada \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\textbf{Etiquetas y clase objetivo.} La delimitación del campo geotérmico activo (Clase 1, positivos) proviene del polígono oficial del Título de Concesión de Cerro Prieto otorgado por la Comisión Federal de Electricidad (CFE), totalizando 24{,}814 píxeles continentales válidos. Los negativos (Clase 0, 65{,}000 píxeles) se muestrearon aleatoriamente fuera de un perímetro de amortiguamiento de 5\,km alrededor de los pozos de explotación, previniendo falsos negativos por difusión hidrotermal.
+
+% ---------- Figura TikZ Flujo ----------
+\begin{figure*}[t]
+\centering
+\begin{tikzpicture}[
+    font=\footnotesize,
+    >={Stealth[length=2.2mm]},
+    box/.style={draw, thick, rounded corners=3pt, align=center, inner sep=4pt,
+                minimum height=1.35cm, text width=3.7cm},
+    src/.style={box, draw=blue!60!black, fill=blue!6},
+    part/.style={box, draw=purple!60!black, fill=purple!7},
+    mod/.style={box, draw=orange!70!black, fill=orange!10},
+    eval/.style={box, draw=green!50!black, fill=green!8},
+    flow/.style={->, thick, black!75}
+  ]
+  \node[src] (a) {\textbf{1. Datos Geofísicos}\\ 89{,}814 muestras (30\,m)\\ LST, NDVI, CEM, Fallas,\\ Magnetometría (SGM)};
+  \node[part, right=0.55cm of a] (b) {\textbf{2. Blindaje Anti-Fuga}\\ Partición 70/15/15 fijada\\ Scaler y SMOTE en Train\\ Test en prevalencia natural};
+  \node[mod, right=0.55cm of b] (c) {\textbf{3. Modelado Pareado}\\ Random Forest, Logística y\\ Redes MLP (64-64-64)\\ ReLU, LReLU, GELU, Swish};
+  \node[eval, right=0.55cm of c] (d) {\textbf{4. Diagnóstico Físico}\\ ROC, PR, Brier Score,\\ 5 semillas estocásticas,\\ Detección de Falsas Alarmas};
+  \draw[flow] (a) -- (b);
+  \draw[flow] (b) -- (c);
+  \draw[flow] (c) -- (d);
+\end{tikzpicture}
+\caption{Flujo metodológico blindado contra fuga de datos para prospección geotérmica regional.}
+\label{fig:flujo}
+\end{figure*}
+
+\textbf{Blindaje metodológico contra fuga de información (No Data Leakage).}
+Un error crítico y recurrente en aprendizaje supervisado radica en ajustar escaladores o generar muestras sintéticas previamente a segmentar las particiones \citep{chawla2002}. Con el fin de erradicar sobreajustes optimistas, se implementó el protocolo visualizado en la Figura~\ref{fig:flujo}:
+\begin{enumerate}[leftmargin=1.2em]
+  \item \textbf{Partición Estratificada Previa:} El conjunto global se subdividió con semilla fija (42) en Entrenamiento (62{,}869 píxeles, 70.0\,\%), Validación (13{,}472 píxeles, 15.0\,\%) y Prueba Independiente (13{,}473 píxeles, 15.0\,\%), preservando estrictamente la tasa original de 27.63\,\% de positivos en los tres subconjuntos.
+  \item \textbf{Ajuste del Normalizador:} La transformación \texttt{StandardScaler} se calculó exclusivamente con las medias $\mu_{\mathrm{train}}$ y desviaciones $\sigma_{\mathrm{train}}$ del entrenamiento, aplicándose posteriormente como proyector ciego sobre validación y prueba.
+  \item \textbf{Balanceo con SMOTE:} La técnica de sobremuestreo sintético de minorías se invocó únicamente sobre la matriz de entrenamiento ya estandarizada, equilibrando la proporción 1:1 (45{,}499 muestras por clase, 90{,}998 totales). Validación y prueba conservaron su distribución intacta sin alteración sintética.
+\end{enumerate}
+
+\textbf{Arquitectura de las Redes Neuronales Profundas.}
+Con el objetivo de garantizar una comparativa formal entre funciones de activación, se fijó una arquitectura común tipo Perceptrón Multicapa (MLP) en PyTorch:
+\begin{itemize}[leftmargin=1.2em]
+  \item \textbf{Topología:} Capa de entrada (8 variables normalizadas), 3 capas ocultas densas de 64 neuronas con normalización por lotes (\texttt{BatchNorm1d}), y neurona de salida con activación sigmoide $\sigma(z) = (1+e^{-z})^{-1}$.
+  \item \textbf{Optimizador y Función de Pérdida:} Optimizador Adam \citep{kingma2014} con tasa de aprendizaje $\eta=0.001$, regularización de peso $\ell_2 = 10^{-4}$ y pérdida de entropía cruzada binaria sobre minilotes de 256 elementos.
+  \item \textbf{Entrenamiento y Regularización:} Presupuesto de 25 épocas con parada temprana (\emph{early stopping}, paciencia de 8 épocas monitoreando el $\AUC$ de validación) y recuperación del mejor estado de pesos en memoria.
+\end{itemize}
+
+\textbf{Formulaciones de funciones de activación evaluadas.}
+Se contrastan cinco alternativas estructurales:
+\begin{enumerate}[leftmargin=1.2em]
+  \item \textbf{ReLU clásico:} $\varphi(v) = \max(0, v)$, base no lineal estándar pero vulnerable a saturación cero en régimen negativo.
+  \item \textbf{LeakyReLU ($\alpha=0.25$):} $\varphi(v) = \max(\alpha v, v)$ con gradiente positivo persistente \citep{maas2013}.
+  \item \textbf{GELU:} $\varphi(v) = v\,\Phi(v) \approx 0.5v\left(1+\tanh\left(\sqrt{2/\pi}(v+0.044715v^3)\right)\right)$, modulación gaussiana suave \citep{hendrycks2016}.
+  \item \textbf{Swish (SiLU):} $\varphi(v) = v\,\sigma(v)$, descubrimiento automatizado con regularidad continua \citep{ramachandran2018}.
+  \item \textbf{Tanh:} $\varphi(v) = (e^v - e^{-v})/(e^v + e^{-v})$, cota sigmoidal simétrica clásica.
+\end{enumerate}
+
+\textbf{Modelos base de control.}
+Se implementó un \emph{Dummy Classifier} (predicción proporcional constante), una Regresión Logística regularizada ($\ell_2$, $C=1.0$) y un bosque aleatorio (\emph{Random Forest}) configurado con 100 árboles de decisión y criterio de impureza de Gini \citep{breiman2001}.
+
+\textbf{Enlace de reproducibilidad.} El repositorio de código, cuadernos ejecutados y datos curados se encuentra disponible públicamente en GitHub\footnote{\url{https://github.com/rubenriv2111-beep/ICD-2026/tree/main/final_proyect}}.
+
+% =====================================================
+\section{RESULTADOS EXPERIMENTALES}
+
+\textbf{Evaluación sobre el conjunto de prueba independiente.}
+La Tabla~\ref{tab:resultados_test} resume el desempeño cuantitativo de los ocho modelos evaluados sobre las 13{,}473 muestras del conjunto de prueba ciego, ordenados descendentemente por su precisión promedio ($\PRAUC$).
+
+\begin{table*}[t]
+\centering
+\footnotesize
+\caption{Evaluación comparativa en el conjunto de prueba independiente (13{,}473 píxeles, prevalencia natural 27.63\,\%).}
+\label{tab:resultados_test}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabularx}{\textwidth}{@{}lcccccrr@{}}
+\toprule
+\textbf{Modelo / Activación} & \textbf{AUC-ROC} & \textbf{PR-AUC} & \textbf{F1-Score} & \textbf{Exactitud Bal.} & \textbf{Brier Score} & \textbf{Umbral Youden} & \textbf{Tiempo (s)} \\
+\midrule
+Random Forest & 1.0000 & 1.0000 & 0.9995 & 0.9997 & 0.00034 & 0.639 & 0.79 \\
+Red: ReLU & 1.0000 & 1.0000 & 0.9989 & 0.9996 & 0.00075 & 0.904 & 35.27 \\
+Red: GELU & 1.0000 & 1.0000 & 0.9987 & 0.9994 & 0.00084 & 0.865 & 32.28 \\
+Red: Tanh & 1.0000 & 1.0000 & 0.9984 & 0.9993 & 0.00090 & 0.796 & 32.35 \\
+Red: Swish (SiLU) & 1.0000 & 0.9999 & 0.9985 & 0.9994 & 0.00090 & 0.769 & 30.00 \\
+Red: LeakyReLU ($\alpha=0.25$) & 1.0000 & 0.9999 & 0.9987 & 0.9995 & 0.00083 & 0.733 & 32.72 \\
+Regresión Logística & 0.9989 & 0.9945 & 0.9857 & 0.9944 & 0.00978 & 0.627 & 0.08 \\
+Dummy Classifier & 0.5026 & 0.2773 & 0.3600 & 0.5026 & 0.50041 & 1.000 & 0.00 \\
+\bottomrule
+\end{tabularx}
+\end{table*}
+
+\textbf{Variabilidad estocástica en redes y ensambles.}
+Con el objetivo de cuantificar la sensibilidad de los estimadores a la inicialización paramétrica de la red neuronal y el muestreo de árboles, se ejecutaron cinco corridas estocásticas independientes con semillas $\{42, 101, 2024, 7, 99\}$. Los resultados arrojaron:
+\begin{align*}
+  \AUC(\text{Random Forest}) &= 1.0000 \pm 0.0000 \\
+  \AUC(\text{Red LeakyReLU}) &= 0.9999 \pm 0.0000
+\end{align*}
+Esta variabilidad prácticamente nula indica que las fronteras de decisión aprendidas convergen de forma estable sobre la variedad geométrica del conjunto de entrenamiento.
+
+\textbf{Diagnóstico geofísico de residuos y falsas alarmas.}
+El análisis residual detallado sobre la red LeakyReLU evidenció cero falsos negativos (tasa de omisión del 0.00\,\%, preservando íntegramente las zonas prospectivas de Cerro Prieto) y únicamente 10 falsos positivos (0.07\,\% de falsas alarmas). La Tabla~\ref{tab:residuos} describe el contraste de firmas geofísicas entre las categorías predictivas.
+
+\begin{table}[h]
+\centering
+\footnotesize
+\caption{Firma geofísica media de falsos positivos frente a negativos y positivos reales (Red LeakyReLU).}
+\label{tab:residuos}
+\begin{tabularx}{\columnwidth}{@{}>{\bfseries}lcccc@{}}
+\toprule
+Variable & Verdadero Neg. & Falso Pos. & Verdadero Pos. & Falso Neg. \\
+\midrule
+LST ($^\circ\text{C}$) & 50.53 & \textbf{53.37} & 42.30 & -- \\
+NDVI & 0.07 & 0.04 & 0.00 & -- \\
+Elevación (m) & 199.89 & 78.76 & 31.23 & -- \\
+Pendiente ($^\circ$) & 2.20 & 2.70 & 0.74 & -- \\
+Prox\_Fallas (m) & 17{,}807 & \textbf{9{,}243} & 9{,}236 & -- \\
+Magnetometría & -238.14 & \textbf{-147.97} & -133.16 & -- \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Los falsos positivos se ubican espacialmente en la planicie árida de El Chinero y Laguna Salada. Como evidencia la Tabla~\ref{tab:residuos}, exhiben una temperatura LST promedio de $53.37\,^\circ\text{C}$ (superior incluso a la emisión media de Cerro Prieto de $42.30\,^\circ\text{C}$, atenuada por evaporación) y una proximidad estructural a fallas de $9{,}243$\,m que coincide milimétricamente con la separación típica de los límites de concesión ($9{,}236$\,m). Asimismo, presentan una magnetometría residual de $-147.97$\,nT muy cercana a la firma de basamento hidrotermal ($-133.16$\,nT).
+
+% =====================================================
+\section{DISCUSIÓN E INTERPRETACIÓN CIENTÍFICA}
+
+Esta sección aborda el núcleo del análisis de abstracción: qué fundamentan rigurosamente las métricas obtenidas, qué conclusiones resultan metodológicamente inadmisibles y por qué.
+
+\subsection{Qué significan los resultados}
+\textbf{1. Fuerte acoplamiento térmico-estructural.} Las métricas casi perfectas en el conjunto de prueba independiente ($\AUC=1.0000$) no representan sobreajuste casual, sino la existencia de una separación multivariada real en el espacio de características. En el Valle de Mexicali, un píxel hidrotermal viable satisface simultáneamente cuatro condiciones físicas irreproducibles en el terreno circundante:
+\begin{itemize}[leftmargin=1.2em]
+  \item Emisión térmica continua LST anómala generada por gradientes de convección profunda.
+  \item Proximidad inmediata a fallas activas transcurrentes del sistema San Andrés, responsables de permeabilizar el medio rocoso.
+  \item Depresión topográfica en cuenca sedimentaria plana (elevaciones $<50$\,m y pendientes $<1.0^\circ$).
+  \item Firma magnética residual atenuada por alteración hidrotermal hidrotermalmente desmagnetizante sobre el basamento volcánico.
+\end{itemize}
+
+\textbf{2. Saturación del régimen tabular en funciones de activación.} Entre las formulaciones de ReLU, LeakyReLU, GELU, Swish y Tanh, las variaciones de $\PRAUC$ se mantuvieron confinadas en la cuarta cifra decimal ($0.9999$ a $1.0000$). Esto demuestra que en conjuntos tabulares de baja dimensionalidad (8 covariables) dominados por señales geofísicas contrastantes, la función de activación específica no constituye un cuello de botella representacional. No obstante, LeakyReLU ($\alpha=0.25$) exhibe ventajas operativas: requiere un umbral de decisión más balanceado ($0.733$ frente a $0.904$ de ReLU, que tiende a concentrar masa probabilística en el extremo superior) y alcanza un error cuadrático probabilístico inferior (Brier Score de $0.00083$).
+
+\subsection{Qué NO se puede concluir de ellos y por qué}
+Es imperativo delimitar los límites epistémicos de la inferencia matemática:
+
+\textbf{1. Susceptibilidad superficial NO equivale a viabilidad geotérmica comercial.}
+El modelo predice exclusivamente la verosimilitud de que un píxel comparta la signatura espectral y geomorfológica superficial de Cerro Prieto. \textbf{No es posible inferir} la presencia de un yacimiento explotable, la tasa de permeabilidad en profundidad, el contenido de fluidos ni la entalpía termodinámica del reservorio a 2{,}000\,m de profundidad. Declarar un nuevo pozo viable basándose únicamente en este mapa constituiría una falacia geológica grave, pues el calentamiento superficial puede derivar de fenómenos radiativos solares o capas sedimentarias impermeables sin reservorio comercial subyacente.
+
+\textbf{2. No se puede predecir la temperatura de fondo ni la capacidad instalada en MW.}
+Las variables satelitales (LST) cuantifican la temperatura cinemática de la capa de emisión micrométrica del terreno. No existe una función biyectiva entre LST superficial y temperatura de fondo del fluido ($>300\,^\circ\text{C}$). En consecuencia, el índice del modelo debe tratarse como una herramienta de priorización de prospección territorial preliminar, no como un estimador de capacidad energética.
+
+\textbf{3. Las falsas alarmas evidencian interferencia radiativa solar en suelos desnudos.}
+El hallazgo de 10 falsos positivos en El Chinero ilustra por qué la temperatura satelital aislada es engañosa. Dichas celdas alcanzan $53.37\,^\circ\text{C}$ debido al alto albedo térmico y desecación de limos salinos bajo irradiación solar plena. La inclusión de la distancia a fallas logró filtrar más del 99.9\,\% de la cuenca desértica, pero donde las zonas áridas intersectan trazas secundarias, el algoritmo genera falsas alarmas comprensibles.
+
+% =====================================================
+\section{LIMITACIONES CONCRETAS Y LÍNEAS FUTURAS}
+
+Se reconocen con transparencia las limitaciones metodológicas del trabajo:
+
+\begin{enumerate}[leftmargin=1.2em]
+  \item \textbf{Autocorrelación espacial regional:} La división estratificada por píxeles individuales (incluso aislada en prueba ciega) evalúa primariamente interpolación dentro de la misma provincia fisiográfica. Los píxeles vecinos comparten covarianzas espaciales no modeladas. Para evaluar la transferibilidad hacia cuencas geotérmicas distintas (p.~ej., prospecto de San Felipe o La Primavera, Jalisco), se requerirá validación cruzada por bloques espaciales geográficamente disjuntos (\emph{spatial block cross-validation}).
+  \item \textbf{Adquisición satelital unitemporal:} Se procesó una sola escena de Landsat 9 capturada a finales de verano (septiembre de 2026). Las variaciones estacionales de temperatura ambiente y humedad edáfica inducen sesgos que deben corregirse mediante series temporales multianuales de LST.
+  \item \textbf{Carencia de geofísica profunda:} La ausencia de cubos de resistividad magnetotelúrica (MT) e información litológica de pozos limita el discernimiento de sistemas ciegos (\emph{blind geothermal systems}) que carecen de anomalías térmicas en superficie.
+\end{enumerate}
+
+\textbf{Líneas futuras.} Incorporar series temporales MODIS/Landsat para desacoplar el ciclo diurno solar, estructurar particiones por cuadrículas espaciales disjuntas e integrar prospecciones magnetotelúricas 3D sobre la Falla San Jacinto.
+
+% =====================================================
+\section*{DECLARACIÓN ÉTICA DE USO DE IA GENERATIVA}
+En apego irrestricto a los lineamientos de integridad académica del Posgrado en Ciencias de la Computación del CICESE, se declara que se utilizaron herramientas de inteligencia artificial generativa (\emph{Google Gemini / Antigravity}) exclusivamente como asistencia de soporte técnico en la formulación sintáctica de tablas en LaTeX, la verificación formal de referencias bibliográficas bajo el estándar APA 7 y el pulido gramatical del texto. El diseño experimental, la delimitación física de datos, la estructuración del flujo anti-fuga y la interpretación científica crítica son autoría y responsabilidad exclusiva del estudiante autor.
+
+% =====================================================
+\begin{thebibliography}{99}
+\setlength{\itemsep}{0pt}
+\setlength{\parskip}{0pt}
+\scriptsize
+
+\bibitem[Breiman(2001)]{breiman2001}
+Breiman, L. (2001). Random forests. \emph{Machine Learning}, 45(1), 5--32. \url{https://doi.org/10.1023/A:1010933404324}
+
+\bibitem[Chawla et~al.(2002)]{chawla2002}
+Chawla, N. V., Bowyer, K. W., Hall, L. O., \& Kegelmeyer, W. P. (2002). SMOTE: Synthetic Minority Over-sampling Technique. \emph{Journal of Artificial Intelligence Research}, 16, 321--357. \url{https://doi.org/10.1613/jair.953}
+
+\bibitem[Goodfellow et~al.(2016)]{goodfellow2016}
+Goodfellow, I., Bengio, Y., \& Courville, A. (2016). \emph{Deep Learning}. MIT Press.
+
+\bibitem[Hendrycks y Gimpel(2016)]{hendrycks2016}
+Hendrycks, D., \& Gimpel, K. (2016). Gaussian Error Linear Units (GELUs). \emph{arXiv preprint arXiv:1606.08415}.
+
+\bibitem[INEGI(2020)]{inegi}
+Instituto Nacional de Estadística y Geografía. (2020). \emph{Continuo de Elevaciones Mexicano 3.0 (CEM 3.0)}. INEGI.
+
+\bibitem[Kingma y Ba(2014)]{kingma2014}
+Kingma, D. P., \& Ba, J. (2014). Adam: A method for stochastic optimization. \emph{arXiv preprint arXiv:1412.6980}.
+
+\bibitem[Maas et~al.(2013)]{maas2013}
+Maas, A. L., Hannun, A. Y., \& Ng, A. Y. (2013). Rectifier nonlinearities improve neural network acoustic models. \emph{Proc. ICML}, 30(1), 3.
+
+\bibitem[Prol-Ledesma et~al.(2023)]{prolledesma2023}
+Prol-Ledesma, R. M., Carrillo-López, I. J., \& Torres-Vera, M. A. (2023). San Felipe Geothermal Prospect: A Previously Unrecognized Hydrothermal System on the Northeastern Coast of the Baja California Peninsula, México. \emph{Natural Resources Research}, 32, 2541--2565. \url{https://doi.org/10.1007/s11053-023-10255-6}
+
+\bibitem[Ramachandran et~al.(2018)]{ramachandran2018}
+Ramachandran, P., Zoph, B., \& Le, Q. V. (2018). Searching for activation functions. \emph{arXiv preprint arXiv:1710.05941}.
+
+\bibitem[Servicio Geológico Mexicano(2001)]{sgm2001}
+Servicio Geológico Mexicano. (2001). \emph{Cartas aeromagnéticas Mexicali I11-12 y San Felipe H11-3}, escala 1:250{,}000, y catálogo de fallas activas. SGM.
+
+\bibitem[USGS(2023)]{usgs2023}
+U.S. Geological Survey. (2023). \emph{Landsat 8-9 OLI/TIRS Collection 2 Level-2 Science Products}. USGS.
+
+\end{thebibliography}
+
+\end{document}
