@@ -1,0 +1,25 @@
+comparacion,n_pos,n_neg,neg_dist_poligono_mediana_m,neg_dist_poligono_iqr_m,baseline_prevalencia,ROC_AUC_Magnetometria,PR_AUC_Magnetometria,delta_PR_AUC,advertencia_confundida
+POS_vs_B1,24814,21667,1274.56,745.54,0.53385,0.63912,0.67658,0.14273,efecto confundido (la composicion de distancia al poligono esta confundida con la carta cartografica)
+POS_vs_B2,24814,21667,3600.5,1484.56,0.53385,0.64413,0.61542,0.08157,efecto confundido (la composicion de distancia al poligono esta confundida con la carta cartografica)
+POS_vs_B3_llanura_Mexicali,24814,7629,41485.17,37074.75,0.76485,0.7848,0.87115,0.1063,efecto confundido (la composicion de distancia al poligono esta confundida con la carta cartografica)
+POS_vs_B3_llanura_San_Felipe,24814,8152,92760.32,45859.54,0.75271,0.98321,0.99133,0.23862,efecto confundido (la composicion de distancia al poligono esta confundida con la carta cartografica)
+Pliegue_1_POS_vs_B1,4385,5078,1318.98,739.31,0.46338,0.95133,0.92093,0.45755,efecto confundido
+Pliegue_1_POS_vs_B2,4385,6125,3626.4,1437.99,0.41722,0.99797,0.99444,0.57722,efecto confundido
+Pliegue_1_POS_vs_B3_llanura_Mexicali,4385,1602,55538.52,27792.12,0.73242,0.85089,0.8886,0.15618,efecto confundido
+Pliegue_1_POS_vs_B3_llanura_San_Felipe,4385,1268,87797.03,43027.25,0.77569,0.99625,0.99766,0.22197,efecto confundido
+Pliegue_2_POS_vs_B1,5443,3112,1240.2,736.72,0.63624,0.58273,0.62314,-0.0131,efecto confundido
+Pliegue_2_POS_vs_B2,5443,2283,3453.13,1416.8,0.7045,0.56004,0.66695,-0.03755,efecto confundido
+Pliegue_2_POS_vs_B3_llanura_Mexicali,5443,1981,41692.76,44232.76,0.73316,0.8819,0.88641,0.15325,efecto confundido
+Pliegue_2_POS_vs_B3_llanura_San_Felipe,5443,1013,105555.58,49590.85,0.84309,0.98435,0.99425,0.15116,efecto confundido
+Pliegue_3_POS_vs_B1,5385,2335,1194.36,720.71,0.69754,0.69999,0.82094,0.1234,efecto confundido
+Pliegue_3_POS_vs_B2,5385,843,3030.59,1490.45,0.86464,0.74315,0.88645,0.02181,efecto confundido
+Pliegue_3_POS_vs_B3_llanura_Mexicali,5385,1023,32849.73,20778.75,0.84036,0.63216,0.82558,-0.01478,efecto confundido
+Pliegue_3_POS_vs_B3_llanura_San_Felipe,5385,1927,99284.85,35158.99,0.73646,0.99257,0.9886,0.25214,efecto confundido
+Pliegue_4_POS_vs_B1,5261,8569,1332.55,741.56,0.3804,0.64926,0.42886,0.04846,efecto confundido
+Pliegue_4_POS_vs_B2,5261,11645,3696.7,1466.33,0.31119,0.5197,0.29903,-0.01216,efecto confundido
+Pliegue_4_POS_vs_B3_llanura_Mexicali,5261,1492,46331.73,40943.46,0.77906,0.96515,0.97019,0.19113,efecto confundido
+Pliegue_4_POS_vs_B3_llanura_San_Felipe,5261,1654,84407.28,40653.26,0.76081,0.99971,0.99989,0.23908,efecto confundido
+Pliegue_5_POS_vs_B1,4340,2573,1129.69,745.18,0.6278,0.51448,0.69728,0.06948,efecto confundido
+Pliegue_5_POS_vs_B2,4340,771,2918.8,1155.14,0.84915,0.71307,0.93232,0.08317,efecto confundido
+Pliegue_5_POS_vs_B3_llanura_Mexicali,4340,1531,31789.72,33213.87,0.73923,0.61145,0.79891,0.05968,efecto confundido
+Pliegue_5_POS_vs_B3_llanura_San_Felipe,4340,2290,89904.58,55034.59,0.6546,0.94458,0.95676,0.30216,efecto confundido

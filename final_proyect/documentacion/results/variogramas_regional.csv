@@ -1,0 +1,7 @@
+covariable,tipo_muestra,n_muestra,varianza_regional,sill_95_regional,alcance_regional_km,alcance_dataset_estratificado_km,diferencia_alcances,espaciado_tipico_muestra_km,status_resolucion_estratificada,razon_buffer_alcance_1sig
+LST,SRS_Regional_Continuo,4000,52.1547,49.547,45.25,2.25,45.25 vs 2.25,1.29,resuelto,0.01 (1%)
+NDVI,SRS_Regional_Continuo,4000,0.0191,0.0182,38.75,0.75,38.75 vs 0.75,1.29,no resuelto (alcance 0.75 km < espaciado tipico 1.29 km),0.01 (1%)
+Elevaciones,SRS_Regional_Continuo,4000,131748.9375,125161.4906,>60.00,>60.00,>60.00 vs >60.00,1.29,resuelto,<0.008 (<0.8%)
+Pendientes,SRS_Regional_Continuo,4000,27.2933,25.9286,>60.00,28.75,>60.00 vs 28.75,1.29,resuelto,<0.008 (<0.8%)
+Magnetometria,SRS_Regional_Continuo,4000,7354.2373,6986.5254,>60.00,42.25,>60.00 vs 42.25,1.29,resuelto,<0.008 (<0.8%)
+dist_fallas_SGM_m,SRS_Regional_Continuo,4000,233871610.0265,222178029.5252,>60.00,17.75,>60.00 vs 17.75,1.29,resuelto,<0.008 (<0.8%)

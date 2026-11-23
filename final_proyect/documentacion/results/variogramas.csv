@@ -1,0 +1,7 @@
+covariable,n_muestra,n_pares_total,varianza_total,sill_95_pct,alcance_fase1_ventana_25km,alcance_practico_km,lag_maximo_evaluado_km,n_pares_en_alcance,comportamiento_espacial
+LST,4000,7998000,51.3984,48.8285,2.25 km,2.25,60.0,632189,Estacionario con meseta (Sill alcanzado)
+NDVI_reflectancia,4000,7998000,0.057,0.0542,0.75 km,0.75,60.0,113958,Estacionario con meseta (Sill alcanzado)
+Elevaciones,4000,7998000,39839.9805,37847.9814,>24.75 km (truncado por ventana de 25 km),>60.00,60.0,7998000,No estacionario (Deriva regional monótona continua)
+Pendientes,4000,7998000,9.2111,8.7505,>24.75 km (truncado por ventana de 25 km),28.75,60.0,4916182,Estacionario con meseta (Sill alcanzado)
+Magnetometria_continuo,4000,7998000,12452123.0,11829516.85,>24.75 km (truncado por ventana de 25 km),42.25,60.0,5172358,Estacionario con meseta (Sill alcanzado)
+dist_fallas_SGM_m,4000,7998000,74026209.4101,70324898.9396,17.75 km,17.75,60.0,4705397,Estacionario con meseta (Sill alcanzado)

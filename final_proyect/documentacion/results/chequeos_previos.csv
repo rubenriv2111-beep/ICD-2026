@@ -1,0 +1,11 @@
+parametro,valor,interpretacion
+Celdas_z0_dominio_candidato_total,1714,Total celdas con z=0 dentro de mask_candidates
+Celdas_z0_Laguna_Salada_total,310966,Total celdas z=0 en la cuenca de Laguna Salada
+Celdas_z0_Laguna_Salada_hueco_oeste_Landsat,310966,Celdas de Laguna Salada excluidas por ST_B10<=0 (100% de la cuenca)
+Celdas_z0_Laguna_Salada_en_candidatos,0,"Celdas de Laguna Salada retenidas en el dominio (ninguna, 100% fuera)"
+Candidatos_B3_total,19061282,Universo de celdas candidatas a >5 km de Cerro Prieto
+Candidatos_B3_con_z0,1714,Celdas z=0 en candidatos B3 (marismas deltaicas del Río Colorado)
+Fraccion_z0_en_candidatos_B3,8.992e-05,Probabilidad de seleccionar una celda con z=0 en B3
+Esperadas_z0_en_muestra_B3_21667,1.948,"21,667 * fraccion_z0_candidatos_B3"
+Observadas_z0_en_dataset_final,1,Celdas con z<=0 en dataset_final.parquet (Banda B3)
+Reconciliacion_consistente,"Si (esperadas=1.95, observadas=1, p_binomial=0.28)","Coincidencia probabilistica exacta, sin inconsistencia"

@@ -1,0 +1,24 @@
+modelo,hiperparametro,valor,descripcion
+Dummy,strategy,prior,Predice siempre la frecuencia a priori de la clase positiva en train
+Regresion_Logistica,C,1.0,Inverso de la fuerza de regularizacion L2
+Regresion_Logistica,penalty,l2,Regularizacion de norma euclidiana
+Regresion_Logistica,solver,lbfgs,Optimizador quasi-Newton de memoria limitada
+Regresion_Logistica,max_iter,1000,Numero maximo de iteraciones de convergencia
+Regresion_Logistica,class_weight,None,Sin ponderacion artificial de clases (prevalencia empirica)
+Random_Forest,n_estimators,200,Numero de arboles de clasificacion en el ensamble
+Random_Forest,max_depth,12,Profundidad maxima de cada arbol
+Random_Forest,min_samples_leaf,20,Numero minimo de muestras por hoja terminal
+Random_Forest,class_weight,None,Sin ponderacion artificial de clases
+Random_Forest,random_state,42,Semilla fija para reproducibilidad
+MLP_PyTorch,arquitectura,"8-64-64-32-1",Capas densas con 8 entradas y activaciones LeakyReLU
+MLP_PyTorch,activacion,"LeakyReLU(negative_slope=0.25)",No linealidad con pendiente suave en valores negativos
+MLP_PyTorch,batch_norm,True,Normalizacion por lotes despues de cada capa lineal
+MLP_PyTorch,dropout,0.10,Tasa de dropout de regularizacion
+MLP_PyTorch,optimizador,AdamW,Optimizador de gradiente estocastico con desacoplamiento de weight decay
+MLP_PyTorch,learning_rate,0.001,Tasa de aprendizaje inicial
+MLP_PyTorch,weight_decay,0.0001,Penalizacion de regularizacion L2 desacoplada
+MLP_PyTorch,batch_size,256,Tamano de lote de entrenamiento
+MLP_PyTorch,epocas,15,Numero de pasadas completas sobre el conjunto de entrenamiento
+MLP_PyTorch,loss_function,BCEWithLogitsLoss,Entropia cruzada binaria sin pesos (pos_weight=None)
+MLP_PyTorch,semillas,"[42, 43, 44]",Promedio de ensamble simple de 3 inicializaciones independientes
+MLP_PyTorch,metricas_dispersion,True,Se reporta la desviacion estandar entre semillas

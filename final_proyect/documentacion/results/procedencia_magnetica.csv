@@ -1,0 +1,16 @@
+atributo,valor,fuente_archivo,linea
+archivo,mapa_aeromagnetico_utm11n_continuo.tif,directorio_proyecto,N/A
+ruta_relativa,Procesamiento de imagenes\mapa_aeromagnetico_utm11n_continuo.tif,directorio_proyecto,N/A
+crs,EPSG:32611,GeoTIFF metadata,N/A
+resolucion_espacial,30.00 x 30.00 m,GeoTIFF metadata,N/A
+dimensiones_grilla,7509 filas x 6434 columnas,GeoTIFF metadata,N/A
+extension_utm11n,"[593417.78, 3430015.85, 786437.78, 3655285.85]",GeoTIFF metadata,N/A
+valor_nodata,-99999.0,GeoTIFF metadata,N/A
+tamano_archivo,"34.67 MB (36,351,837 bytes)",sistema_archivos,N/A
+fecha_modificacion,2026-10-03 16:28:58,sistema_archivos,N/A
+script_generador,generar_aeromagnetometria_cicese_v2.py (suavizado gaussiano sigma=2.0 sobre celdas continuas),Procesamiento de imagenes\generar_aeromagnetometria_cicese_v2.py,228-260
+insumo_cartas_sgm,Carta Mexicali H11-12 (paso 20 nT) y San Felipe H11-3 (paso 50 nT),Procesamiento de imagenes\generar_aeromagnetometria_cicese_v2.py,25-27
+mencion_readme,Magnetometría Residual | Servicio Geológico Mexicano (SGM) | Vuelo aeromagnético,Proyecto_Ciencia_De_Datos\Notebook del proyecto\README.md,47
+espaciado_lineas_vuelo,no verificable,ninguna en archivos del proyecto,N/A
+altura_vuelo,no verificable,ninguna en archivos del proyecto,N/A
+tratamiento_igrf,no verificable,ninguna en archivos del proyecto,N/A

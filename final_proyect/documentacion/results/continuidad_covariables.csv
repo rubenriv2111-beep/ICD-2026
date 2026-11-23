@@ -1,0 +1,8 @@
+covariable,correlacion_pearson,diferencia_media_absoluta,diferencia_maxima_absoluta,media_original,media_nueva,diagnostico
+LST,1.0,0.0025,0.005,42.5107,42.51070022583008,Fórmula Collection 2 idéntica
+NDVI (Reflectancia Física),0.766466,0.1714,0.9875,0.004,-0.12479999661445618,Calibración física con escala y offset
+NDVI (Raw DN original),1.0,0.0,0.0001,0.004,0.004000000189989805,Fórmula sobre DN sin calibrar
+Elevaciones,0.999999,0.0129,0.0508,31.3726,31.375900268554688,Recuperación de m.s.n.m. exactos (/0.09)
+Pendientes,0.999999,0.0022,0.005,0.7507,0.7505000233650208,Horn slope idéntico
+Prox_Fallas,0.998363,82.021,161.7247,9211.8276,9130.5527,Desfase por reproyección NAD27->WGS84
+Magnetometria (CICESE Final),-0.549009,139.054,270.0,-132.0754,-271.12939453125,Corrección de paleta e inversión SGM

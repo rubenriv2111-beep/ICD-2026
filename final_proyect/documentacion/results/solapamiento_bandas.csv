@@ -1,0 +1,7 @@
+banda,n_celdas,LST_mediana,LST_ks_stat,LST_ks_pval,NDVI_mediana,NDVI_ks_stat,NDVI_ks_pval,Elevaciones_mediana,Elevaciones_ks_stat,Elevaciones_ks_pval,Pendientes_mediana,Pendientes_ks_stat,Pendientes_ks_pval,dist_fallas_SGM_m_mediana,dist_fallas_SGM_m_ks_stat,dist_fallas_SGM_m_ks_pval,Magnetometria_mediana,Magnetometria_ks_stat,Magnetometria_ks_pval
+POS,24814,40.65,0.0,1.0,0.05,0.0,1.0,26.05,0.0,1.0,0.29,0.0,1.0,9118.49,0.0,1.0,-138.94,0.0,1.0
+B1,21667,53.73,0.6236,0.0,0.13,0.6589,0.0,25.55,0.1758,0.0,0.23,0.2873,0.0,10818.27,0.4906,0.0,-130.0,0.2296,0.0
+B2,21667,51.62,0.5404,0.0,0.17,0.7791,0.0,20.74,0.3114,0.0,0.2,0.3211,0.0,12832.43,0.6388,0.0,-110.0,0.2717,0.0
+B3,21667,52.76,0.4087,0.0,0.1,0.4795,0.0,49.71,0.4619,0.0,0.29,0.2966,0.0,13718.18,0.5445,0.0,-225.0,0.7775,0.0
+B3_llanura,15781,54.38,0.4912,0.0,0.1,0.4602,0.0,28.79,0.3827,0.0,0.16,0.2544,0.0,20777.06,0.7335,0.0,-210.0,0.7472,0.0
+B3_montaña,5886,48.25,0.2894,0.0,0.11,0.5317,0.0,503.68,0.9863,0.0,3.64,0.8076,0.0,2177.66,0.9003,0.0,-325.0,0.8605,0.0

@@ -1,0 +1,9 @@
+covariable,buffer_espacial_m,alcance_regional_km,alcance_regional_m,razon_buffer_alcance,fuga_espacial_residual
+LST,500.0,45.25,45250,0.0110 (1.10%),Alta (buffer cubre fraccion insignificante de la estructura espacial regional)
+NDVI,500.0,38.75,38750,0.0129 (1.29%),Alta (buffer cubre fraccion insignificante de la estructura espacial regional)
+Elevaciones,500.0,>60.00,>60000,<0.0083 (<0.83%),Alta (buffer cubre fraccion insignificante de la estructura espacial regional)
+Pendientes,500.0,>60.00,>60000,<0.0083 (<0.83%),Alta (buffer cubre fraccion insignificante de la estructura espacial regional)
+Magnetometria,500.0,>60.00,>60000,<0.0083 (<0.83%),Alta (buffer cubre fraccion insignificante de la estructura espacial regional)
+dist_fallas_SGM_m,500.0,>60.00,>60000,<0.0083 (<0.83%),Alta (buffer cubre fraccion insignificante de la estructura espacial regional)
+Ratio_Termo_Estructural,500.0,>60.00,>60000,<0.0083 (<0.83%),Alta (hereda alcance estructural de fallas)
+Indice_Topo_Termico,500.0,>60.00,>60000,<0.0083 (<0.83%),Alta (hereda alcance regional de pendientes y LST)

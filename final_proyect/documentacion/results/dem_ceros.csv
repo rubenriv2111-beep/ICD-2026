@@ -1,0 +1,13 @@
+alcance,concepto,conteo,pct_del_total,observacion
+TIFF_completo_elevaciones30,Total celdas en archivo,48708378.0,100.0,Dimensiones 7533 x 6466
+TIFF_completo_elevaciones30,Celdas con z == 0.0,9698869.0,19.91,"Incluye mar, Laguna Salada y relleno exterior"
+TIFF_completo_elevaciones30,Celdas con z < 0.0,0.0,0.0,El ráster está acotado en cero (sin valores negativos)
+TIFF_completo_elevaciones30,"Esquina (0,0) relleno exterior",1.0,0.0,Valor 0.0 confirma uso como padding exterior
+Ventana_comun_proyecto,Total celdas en ventana de interseccion,35601332.0,100.0,Dimensiones 6647 x 5356
+Ventana_comun_proyecto,Celdas con z == 0.0 en ventana,7475265.0,21.0,Total ceros en ventana de análisis
+Ventana_comun_proyecto,Celdas z == 0 en Mascara de Mar (Golfo),6529709.0,18.34,Cuerpo de agua contiguo del Golfo de California
+Ventana_comun_proyecto,Celdas z == 0 en Laguna Salada,310966.0,0.87,Depresión endorreica continental bajo nivel del mar
+Ventana_comun_proyecto,Celdas z == 0 en Relleno de bordes,22294.0,0.06,Franjas perimetrales sin cobertura
+Ventana_comun_proyecto,Celdas z == 0 en Otras Zonas (Planicie/Delta),614988.0,1.73,Llanura aluvial y marismas del Delta del Río Colorado
+Dataset_final_89815,Celdas con z <= 0.0 en dataset final,1.0,0.0,"Banda B3: 1, B1: 0, B2: 0, POS: 0"
+Dataset_final_89815,Cota minima z en dataset,0.0,,"Denominador minimo de I_TT = 50.00 (estable, sin division por cero)"

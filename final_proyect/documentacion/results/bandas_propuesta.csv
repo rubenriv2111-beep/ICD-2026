@@ -1,0 +1,5 @@
+banda,rango_distancia_km,area_disponible_km2,celdas_candidatas_30m,negativos_actuales,propuesta_N_equilibrada_1to1,propuesta_N_preservando_65k,estado
+Zona de Exclusión (Amortiguamiento),0.0 - 0.5,12.414,13793,0,0,0,Excluido por incertidumbre de contacto
+Banda 1: Proximal (Halo hidrotermal inmediato),0.5 - 2.0,46.303,51448,0,8271,21667,Candidato activo
+Banda 2: Intermedia (Transición estructural),2.0 - 5.0,133.8202,148689,3,8271,21667,Candidato activo
+Banda 3: Distal / Regional (Fondo regional),> 5.0,43266.1744,48073527,64997,8271,21667,Candidato activo

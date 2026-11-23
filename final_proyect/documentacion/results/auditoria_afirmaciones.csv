@@ -1,0 +1,56 @@
+texto,nivel,archivo,fila_columna,valor_citado,valor_releido_del_archivo,coincide
+Celdas z=0 en dominio candidato continental,A,chequeos_previos.csv,"fila 1, valor",1714,1714,si
+Celdas z=0 Laguna Salada en hueco oeste Landsat,A,chequeos_previos.csv,"fila 3, valor",310966,310966,si
+Celdas z=0 Laguna Salada retenidas en dominio candidato,A,chequeos_previos.csv,"fila 4, valor",0,0,si
+Esperadas z0 en muestra B3,A,chequeos_previos.csv,"fila 8, valor",1.948,1.948,si
+Observadas z0 en dataset final,A,chequeos_previos.csv,"fila 9, valor",1,1,si
+Mediana gradiente abs Mexicali,A,gradiente_carta.csv,"fila 0, mediana_abs_gradiente_nT_30m",0.0041,0.0041,si
+P95 gradiente abs Mexicali,A,gradiente_carta.csv,"fila 0, p95_abs_gradiente_nT_30m",2.6427,2.6427,si
+Mediana gradiente abs San Felipe,A,gradiente_carta.csv,"fila 5, mediana_abs_gradiente_nT_30m",0.0,0.0,si
+P95 gradiente abs San Felipe,A,gradiente_carta.csv,"fila 5, p95_abs_gradiente_nT_30m",5.4723,5.4723,si
+Pliegue 1 POS distancia mediana a train,A,diagnostico_posicional.csv,"pliegue 1 POS, dist_mediana_m",1065.32,1065.32,si
+Pliegue 1 POS distancia p95 a train,A,diagnostico_posicional.csv,"pliegue 1 POS, dist_p95_m",1994.49,1994.49,si
+Pliegue 1 POS % vecino < 1km,A,diagnostico_posicional.csv,"pliegue 1 POS, pct_vecino_train_menor_1km",45.09,45.09,si
+Pliegue 1 POS % vecino < 2km,A,diagnostico_posicional.csv,"pliegue 1 POS, pct_vecino_train_menor_2km",95.07,95.07,si
+Pliegue 1 POS % vecino < 5km,A,diagnostico_posicional.csv,"pliegue 1 POS, pct_vecino_train_menor_5km",100.0,100.0,si
+Pliegue 2 POS distancia mediana a train,A,diagnostico_posicional.csv,"pliegue 2 POS, dist_mediana_m",948.68,948.68,si
+Pliegue 2 POS distancia p95 a train,A,diagnostico_posicional.csv,"pliegue 2 POS, dist_p95_m",1348.33,1348.33,si
+Pliegue 2 POS % vecino < 1km,A,diagnostico_posicional.csv,"pliegue 2 POS, pct_vecino_train_menor_1km",55.96,55.96,si
+Pliegue 2 POS % vecino < 2km,A,diagnostico_posicional.csv,"pliegue 2 POS, pct_vecino_train_menor_2km",100.0,100.0,si
+Pliegue 2 POS % vecino < 5km,A,diagnostico_posicional.csv,"pliegue 2 POS, pct_vecino_train_menor_5km",100.0,100.0,si
+Pliegue 3 POS distancia mediana a train,A,diagnostico_posicional.csv,"pliegue 3 POS, dist_mediana_m",912.41,912.41,si
+Pliegue 3 POS distancia p95 a train,A,diagnostico_posicional.csv,"pliegue 3 POS, dist_p95_m",1350.0,1350.0,si
+Pliegue 3 POS % vecino < 1km,A,diagnostico_posicional.csv,"pliegue 3 POS, pct_vecino_train_menor_1km",60.69,60.69,si
+Pliegue 3 POS % vecino < 2km,A,diagnostico_posicional.csv,"pliegue 3 POS, pct_vecino_train_menor_2km",100.0,100.0,si
+Pliegue 3 POS % vecino < 5km,A,diagnostico_posicional.csv,"pliegue 3 POS, pct_vecino_train_menor_5km",100.0,100.0,si
+Pliegue 4 POS distancia mediana a train,A,diagnostico_posicional.csv,"pliegue 4 POS, dist_mediana_m",1369.53,1369.53,si
+Pliegue 4 POS distancia p95 a train,A,diagnostico_posicional.csv,"pliegue 4 POS, dist_p95_m",2296.13,2296.13,si
+Pliegue 4 POS % vecino < 1km,A,diagnostico_posicional.csv,"pliegue 4 POS, pct_vecino_train_menor_1km",28.91,28.91,si
+Pliegue 4 POS % vecino < 2km,A,diagnostico_posicional.csv,"pliegue 4 POS, pct_vecino_train_menor_2km",83.24,83.24,si
+Pliegue 4 POS % vecino < 5km,A,diagnostico_posicional.csv,"pliegue 4 POS, pct_vecino_train_menor_5km",100.0,100.0,si
+Pliegue 5 POS distancia mediana a train,A,diagnostico_posicional.csv,"pliegue 5 POS, dist_mediana_m",1462.94,1462.94,si
+Pliegue 5 POS distancia p95 a train,A,diagnostico_posicional.csv,"pliegue 5 POS, dist_p95_m",2547.01,2547.01,si
+Pliegue 5 POS % vecino < 1km,A,diagnostico_posicional.csv,"pliegue 5 POS, pct_vecino_train_menor_1km",29.82,29.82,si
+Pliegue 5 POS % vecino < 2km,A,diagnostico_posicional.csv,"pliegue 5 POS, pct_vecino_train_menor_2km",71.43,71.43,si
+Pliegue 5 POS % vecino < 5km,A,diagnostico_posicional.csv,"pliegue 5 POS, pct_vecino_train_menor_5km",100.0,100.0,si
+Rango umbral CV Dummy,A,umbrales_cv.csv,"modelo Dummy, rango_umbral",0.0878,0.0878,si
+Rango umbral CV Regresion_Logistica,A,umbrales_cv.csv,"modelo Regresion_Logistica, rango_umbral",0.3007,0.3007,si
+Rango umbral CV Random_Forest,A,umbrales_cv.csv,"modelo Random_Forest, rango_umbral",0.3209,0.3209,si
+Rango umbral CV MLP_PyTorch_Ensamble,A,umbrales_cv.csv,"modelo MLP_PyTorch_Ensamble, rango_umbral",0.8857,0.8857,si
+Pliegue 1 POS % MNDWI > 0,A,mndwi_pliegues.csv,"pliegue 1 POS, pct_MNDWI_gt_0",52.93,52.93,si
+Pliegue 2 POS % MNDWI > 0,A,mndwi_pliegues.csv,"pliegue 2 POS, pct_MNDWI_gt_0",58.86,58.86,si
+Pliegue 3 POS % MNDWI > 0,A,mndwi_pliegues.csv,"pliegue 3 POS, pct_MNDWI_gt_0",68.6,68.6,si
+Pliegue 4 POS % MNDWI > 0,A,mndwi_pliegues.csv,"pliegue 4 POS, pct_MNDWI_gt_0",42.88,42.88,si
+Pliegue 5 POS % MNDWI > 0,A,mndwi_pliegues.csv,"pliegue 5 POS, pct_MNDWI_gt_0",12.03,12.03,si
+Espaciado tipico muestra SRS,A,variogramas_regional.csv,"fila 0, espaciado_tipico_muestra_km",1.29,1.29,si
+Status resolucion NDVI estratificado,A,variogramas_regional.csv,"fila 1, status_resolucion_estratificada",no resuelto (alcance 0.75 km < espaciado tipico 1.29 km),no resuelto (alcance 0.75 km < espaciado tipico 1.29 km),si
+Random Forest S2_base PR-AUC Media 5P,A,ablacion_grupos.csv,S2_base RF Media 5P,0.9565,0.9565,si
+Regresion Logistica S2_base PR-AUC Media 5P,A,ablacion_grupos.csv,S2_base LR Media 5P,0.8464,0.8464,si
+Random Forest S3_base_derivados PR-AUC Media 5P,A,ablacion_grupos.csv,S3 RF Media 5P,0.9533,0.9533,si
+Random Forest S5_coord PR-AUC Media 5P,A,ablacion_grupos.csv,S5 RF Media 5P,0.8824,0.8824,si
+Random Forest S5_coord PR-AUC Pliegue 4,A,ablacion_grupos.csv,S5 RF Pliegue 4,0.5544,0.5544,si
+Random Forest S6_xy_G_est PR-AUC Media 5P,A,ablacion_grupos.csv,S6_xy_G_est RF Media 5P,0.9528,0.9528,si
+RF S7 caida media G_est,A,permutacion_grupos.csv,G_est RF caida media,0.3448,0.3448,si
+RF S7 caida media G_sup,A,permutacion_grupos.csv,G_sup RF caida media,0.1616,0.1616,si
+RF S7 caida media G_mag,A,permutacion_grupos.csv,G_mag RF caida media,0.0586,0.0586,si
+RF S7 caida media G_top,A,permutacion_grupos.csv,G_top RF caida media,0.0434,0.0434,si

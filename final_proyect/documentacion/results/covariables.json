@@ -1,0 +1,30 @@
+{
+  "covariables_modelo": [
+    "LST",
+    "NDVI",
+    "Elevaciones",
+    "Pendientes",
+    "dist_fallas_SGM_m",
+    "Magnetometria",
+    "Ratio_Termo_Estructural",
+    "Indice_Topo_Termico"
+  ],
+  "columnas_auxiliares_no_covariables": [
+    "id",
+    "x_utm",
+    "y_utm",
+    "lon",
+    "lat",
+    "y",
+    "banda",
+    "dist_poligono_m",
+    "prob_inclusion",
+    "NDVI_raw_dn",
+    "llanura",
+    "split_A",
+    "fold_B",
+    "fold5_asimetrico"
+  ],
+  "total_covariables_modelo": 8,
+  "descripcion": "8 covariables f\u00edsicas estandarizadas para modelado geot\u00e9rmico bajo redise\u00f1o metodol\u00f3gico Fase 2"
+}

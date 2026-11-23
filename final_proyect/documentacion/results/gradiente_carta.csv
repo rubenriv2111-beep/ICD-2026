@@ -1,0 +1,8 @@
+carta,clase_o_banda,n_celdas_validas,n_excluidas_borde_o_nodata,mediana_abs_gradiente_nT_30m,p95_abs_gradiente_nT_30m,cifras_anteriores_desv_est,sustento_limite_32N_en_archivos
+Mexicali_H11-12,TOTAL_CARTA,76566,15,0.0041,2.6427,SOSPECHOSAS: artefacto de borde/NoData,no verificable (no existe archivo original que documente 32N; solo convencion cartografica SGM)
+Mexicali_H11-12,POS,24814,0,0.0575,2.7213,SOSPECHOSAS: artefacto de borde/NoData,no verificable
+Mexicali_H11-12,B1,21667,0,0.0189,2.6358,SOSPECHOSAS: artefacto de borde/NoData,no verificable
+Mexicali_H11-12,B2,21667,0,0.0,2.4384,SOSPECHOSAS: artefacto de borde/NoData,no verificable
+Mexicali_H11-12,B3,8418,15,0.0,2.289,SOSPECHOSAS: artefacto de borde/NoData,no verificable
+San_Felipe_H11-3,TOTAL_CARTA,13141,93,0.0,5.4723,SOSPECHOSAS: artefacto de borde/NoData,no verificable (no existe archivo original que documente 32N; solo convencion cartografica SGM)
+San_Felipe_H11-3,B3,13141,93,0.0,5.4723,SOSPECHOSAS: artefacto de borde/NoData,no verificable

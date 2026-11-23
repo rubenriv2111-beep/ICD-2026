@@ -1,0 +1,11 @@
+comparacion,modelo_1,modelo_2,diff_pr_auc_media_5pliegues,diff_pr_auc_std_5pliegues,victorias_m1_pr_auc_5pliegues,mismo_signo_todos_5pliegues,diff_pr_auc_media_pliegues1_4,diff_pr_auc_std_pliegues1_4,victorias_m1_pr_auc_pliegues1_4,mismo_signo_todos_pliegues1_4,diff_brier_media_5pliegues,victorias_m1_brier_5pliegues,veredicto_estricto
+Random_Forest_vs_Regresion_Logistica,Random_Forest,Regresion_Logistica,0.0028,0.0524,4/5,False,0.0234,0.0288,4/4,True,0.01629,3/5,NO_DETERMINADO (signo cambia entre pliegues)
+Random_Forest_vs_MLP_PyTorch_Ensamble,Random_Forest,MLP_PyTorch_Ensamble,-0.0069,0.0107,0/5,True,-0.0079,0.0121,0/4,True,-0.0016,3/5,MLP_PyTorch_Ensamble es MEJOR
+MLP_PyTorch_Ensamble_vs_Regresion_Logistica,MLP_PyTorch_Ensamble,Regresion_Logistica,0.0097,0.0541,4/5,False,0.0314,0.028,4/4,True,0.01789,3/5,NO_DETERMINADO (signo cambia entre pliegues)
+Regresion_Logistica_vs_Dummy,Regresion_Logistica,Dummy,0.6459,0.0893,5/5,True,0.6689,0.0842,4/4,True,-0.17239,5/5,Regresion_Logistica es MEJOR
+Random_Forest_vs_Dummy,Random_Forest,Dummy,0.6487,0.1296,5/5,True,0.6924,0.0984,4/4,True,-0.1561,5/5,Random_Forest es MEJOR
+MLP_PyTorch_Ensamble_vs_Dummy,MLP_PyTorch_Ensamble,Dummy,0.6556,0.1355,5/5,True,0.7003,0.1058,4/4,True,-0.1545,5/5,MLP_PyTorch_Ensamble es MEJOR
+Caida_A_a_B_Dummy,Dummy,Protocolo_A_vs_Protocolo_B,0.0305,0.103,N/A,N/A,0.0169,0.1136,N/A,N/A,0.02104,N/A,Caida neta: 0.0305 (5 pliegues) / 0.0169 (pliegues 1-4)
+Caida_A_a_B_Regresion_Logistica,Regresion_Logistica,Protocolo_A_vs_Protocolo_B,-0.0205,0.0398,N/A,N/A,-0.0111,0.0389,N/A,N/A,0.01118,N/A,Caida neta: -0.0205 (5 pliegues) / -0.0111 (pliegues 1-4)
+Caida_A_a_B_Random_Forest,Random_Forest,Protocolo_A_vs_Protocolo_B,-0.0444,0.0686,N/A,N/A,-0.0143,0.0156,N/A,N/A,0.0613,N/A,Caida neta: -0.0444 (5 pliegues) / -0.0143 (pliegues 1-4)
+Caida_A_a_B_MLP_PyTorch_Ensamble,MLP_PyTorch_Ensamble,Protocolo_A_vs_Protocolo_B,-0.0373,0.0702,N/A,N/A,-0.0062,0.0112,N/A,N/A,0.06261,N/A,Caida neta: -0.0373 (5 pliegues) / -0.0062 (pliegues 1-4)

@@ -1,0 +1,6 @@
+pliegue,n_pos_test,n_pos_test_MNDWI_gt_0,pct_pos_test_MNDWI_gt_0,baseline_test,RF_G_sup_ROC_AUC,RF_G_sup_PR_AUC,RF_G_sup_Brier,spearman_r_vs_PR_AUC,spearman_p_vs_PR_AUC,spearman_r_vs_ROC_AUC,spearman_p_vs_ROC_AUC,interpretacion_causal
+1,4385,2321,52.93,0.22011,0.95346,0.88246,0.06328,0.9,0.0374,0.5,0.391,NO PERMITIDA (Spearman descriptivo n=5)
+2,5443,3204,58.86,0.35878,0.88859,0.86977,0.11267,0.9,0.0374,0.5,0.391,NO PERMITIDA (Spearman descriptivo n=5)
+3,5385,3694,68.6,0.41754,0.92997,0.91236,0.10574,0.9,0.0374,0.5,0.391,NO PERMITIDA (Spearman descriptivo n=5)
+4,5261,2256,42.88,0.1765,0.92896,0.80011,0.0709,0.9,0.0374,0.5,0.391,NO PERMITIDA (Spearman descriptivo n=5)
+5,4340,522,12.03,0.36116,0.64971,0.5211,0.2634,0.9,0.0374,0.5,0.391,NO PERMITIDA (Spearman descriptivo n=5)

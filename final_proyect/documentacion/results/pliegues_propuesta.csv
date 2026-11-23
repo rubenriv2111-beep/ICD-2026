@@ -1,0 +1,16 @@
+esquema,pliegue,n_total,n_positivos,n_negativos,prevalencia_pct,y_min_utm,y_max_utm,x_center,y_center,buffer_recomendado_m
+Franjas_Latitudinales_5B,1,17967,0,17967,0.0,3430870.2,3496030.2,,,
+Franjas_Latitudinales_5B,2,17968,0,17968,0.0,3496060.2,3534250.2,,,
+Franjas_Latitudinales_5B,3,17956,0,17956,0.0,3534280.2,3571000.2,,,
+Franjas_Latitudinales_5B,4,17973,12644,5329,70.35,3571030.2,3586300.2,,,
+Franjas_Latitudinales_5B,5,17950,12170,5780,67.8,3586330.2,3621190.2,,,
+KMeans_Espacial_5B,1,34621,24814,9807,71.67,,,667811.7,3586279.3,
+KMeans_Espacial_5B,2,15442,0,15442,0.0,,,669527.9,3459405.5,
+KMeans_Espacial_5B,3,12678,0,12678,0.0,,,761529.1,3527944.0,
+KMeans_Espacial_5B,4,12279,0,12279,0.0,,,722954.0,3561098.2,
+KMeans_Espacial_5B,5,14794,0,14794,0.0,,,678767.3,3517331.7,
+Biestratificado_Espacial_5B,1,14181,4385,9796,30.92,,,,,2000.0
+Biestratificado_Espacial_5B,2,20963,5443,15520,25.96,,,,,2000.0
+Biestratificado_Espacial_5B,3,21445,5385,16060,25.11,,,,,2000.0
+Biestratificado_Espacial_5B,4,16876,5261,11615,31.17,,,,,2000.0
+Biestratificado_Espacial_5B,5,16349,4340,12009,26.55,,,,,2000.0

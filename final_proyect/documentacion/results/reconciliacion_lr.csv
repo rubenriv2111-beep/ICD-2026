@@ -1,0 +1,6 @@
+pliegue,n_train,n_test,PR_AUC_Fase3,PR_AUC_Fase4_S3,PR_AUC_Nueva,diff_PR_F3_Nueva,diff_PR_F4_Nueva,ROC_AUC_Fase3,ROC_AUC_Fase4_S3,ROC_AUC_Nueva,diff_ROC_F3_Nueva,diff_ROC_F4_Nueva,Brier_Fase3,Brier_Fase4_S3,Brier_Nueva,PR_AUC_Fase4_S2_sin_deriv,ROC_AUC_Fase4_S2_sin_deriv,convergencia,scaler_en_train_solamente,orden_covariables_identico,estado
+1,65851,19922,0.9687,0.96869,0.96869,1e-05,0.0,0.993,0.993,0.993,0.0,0.0,0.03208,0.03208,0.03208,0.9154,0.97874,convergida_sin_advertencias,si,si,RECONCILIADO_IDENTICO
+2,68416,15171,0.986,0.98601,0.98601,1e-05,0.0,0.9925,0.99249,0.99249,1e-05,0.0,0.03174,0.03174,0.03174,0.94845,0.96615,convergida_sin_advertencias,si,si,RECONCILIADO_IDENTICO
+3,70283,12897,0.9886,0.9886,0.9886,0.0,0.0,0.9951,0.99515,0.99515,5e-05,0.0,0.03051,0.03051,0.03051,0.94163,0.96854,convergida_sin_advertencias,si,si,RECONCILIADO_IDENTICO
+4,56839,29808,0.9053,0.90532,0.90532,2e-05,0.0,0.9711,0.97105,0.97105,5e-05,0.0,0.05359,0.05359,0.05359,0.86649,0.94956,convergida_sin_advertencias,si,si,RECONCILIADO_IDENTICO
+5,74347,12017,0.9149,0.91486,0.91486,4e-05,0.0,0.9579,0.95789,0.95789,1e-05,0.0,0.09519,0.09519,0.09519,0.56015,0.6974,convergida_sin_advertencias,si,si,RECONCILIADO_IDENTICO

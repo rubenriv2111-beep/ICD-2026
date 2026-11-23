@@ -1,0 +1,12 @@
+grupo,n_celdas,min_m,p5_m,mediana_m,media_m,p95_m,max_m,std_m,tipo_registro,subconjunto,coordenada,pearson_r,spearman_rho,r2
+POS,24814.0,7093.58,7789.76,9118.49,9130.55,10530.85,11350.17,862.87,estadisticas_distancia,,,,,
+B1,21667.0,5104.34,5925.9,10818.27,9751.07,12627.03,13327.86,2390.0,estadisticas_distancia,,,,,
+B2,21667.0,2397.17,3961.91,12832.43,11179.56,15406.47,16324.87,3879.96,estadisticas_distancia,,,,,
+B3_llanura,15801.0,36.68,3253.3,20962.82,23078.61,50767.54,66987.3,14654.51,estadisticas_distancia,,,,,
+B3_montaña,5866.0,1.66,160.13,2195.22,3267.58,9913.55,28260.19,3685.56,estadisticas_distancia,,,,,
+B3_total,21667.0,1.66,599.99,13836.52,17715.09,48479.81,66987.3,15420.14,estadisticas_distancia,,,,,
+TOTAL_GLOBAL,89815.0,1.66,2952.8,9973.21,11845.49,31240.37,66987.3,8607.46,estadisticas_distancia,,,,,
+,,,,,,,,,correlacion_coordenada,POS (Positivos Cerro Prieto),X_UTM,0.3981,0.374,0.1585
+,,,,,,,,,correlacion_coordenada,POS (Positivos Cerro Prieto),Y_UTM,0.3511,0.3498,0.1233
+,,,,,,,,,correlacion_coordenada,TOTAL (Todo el Dataset),X_UTM,0.5002,0.6037,0.2502
+,,,,,,,,,correlacion_coordenada,TOTAL (Todo el Dataset),Y_UTM,0.1334,0.3067,0.0178

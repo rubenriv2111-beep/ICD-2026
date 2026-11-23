@@ -1,0 +1,5 @@
+conjunto,n_celdas,media_puntuacion_RF_S2,mediana_puntuacion_RF_S2
+rejilla_dentro_poligono,1551,0.97977,0.99901
+rejilla_banda_B1_500_2000m,2568,0.01627,0.00117
+dataset_positivos_entrenamiento,24814,0.98041,0.99903
+dataset_negativos_B1_entrenamiento,21667,0.01592,0.00124
